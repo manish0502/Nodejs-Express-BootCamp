@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
+require('dotenv').config()
+const connectDB = require('./config/db');
+
 var logger = require('morgan')
 const API = require('./routes/tasks')
-
 const PORT = 3000;
 
 
+// Connect Database
 
+connectDB();
 
 /*---------Intialize Middleware-----*/
 

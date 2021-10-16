@@ -1,19 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const taskManagerController =require("../controllers/tasks")
+const  { createTask } = require('../controllers/tasks')
+//const taskManagerController =require("../controllers/tasks")
+
 
 
 
 
 router.route('/')
-         .get(taskManagerController().getAllTasks)
-         .post(taskManagerController().createTask)
+         .post(createTask)
+
+// router.route('/')
+//          .get(taskManagerController().getAllTasks)
+//          .post(taskManagerController().createTask)
 
 
-router.route('/:id')
-         .get(taskManagerController().getTask)
-         .patch(taskManagerController().updateTask)
-         .delete(taskManagerController().deleteTask)
+// router.route('/:id')
+//          .get(taskManagerController().getTask)
+//          .patch(taskManagerController().updateTask)
+//          .delete(taskManagerController().deleteTask)
 
 
 
