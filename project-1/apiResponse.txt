@@ -88,4 +88,38 @@
        
 
      
+4. Api: To Update the Task using ID
+    request : PATCH
+    url : {{URL}}/tasks/616a894d22d9b646c3e4c7a8
+    body : 
+        {
+         "name":"Mohan Srivastva"
+        }
+    Response: 
+         {
+            "msg": "Task with id : 616a894d22d9b646c3e4c7a8 Updated successfully",
+            "staus": 200,
+            "body": {
+                "_id": "616a894d22d9b646c3e4c7a8",
+                "name": "Mohan Srivastva",
+                "completed": false,
+                "__v": 0
+            }
+        }
+       
 
+     
+ 5. Api: To Delete the Task using ID
+    request : DELETE
+    url : {{URL}}/tasks/616a7651d5c25eedb40f0453
+    Response: 
+         {
+            "msg": "Task with id : 616a7651d5c25eedb40f0453 Deleted successfully",
+            "staus": 200,
+            "body": {
+                "_id": "616a7651d5c25eedb40f0453",
+                "name": "Rahul sinha",
+                "completed": true,
+                "__v": 0
+        }
+}
