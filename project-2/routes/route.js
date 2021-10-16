@@ -1,18 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const { AllDetails } = require('../controllers/products')
+const { 
+    AllDetails ,
+    getAllProductsStatic,
+    getAllProducts
+
+} 
+  = require('../controllers/products')
 
 
 
 
 router.route('/')
-         .get(AllDetails)
+         .get(getAllProducts)
+
+
+router.route('/static')
+        .get(getAllProductsStatic)
         
 
-// router.route('/:id')
-//          .get(getTask)
-//          .patch(updateTask)
-//          .delete(deleteTask)
+
 
 
 
