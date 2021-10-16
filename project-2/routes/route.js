@@ -1,17 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
-
 const { AllDetails } = require('../controllers/products')
-
-
-// const  {  
-//     getAllTasks,
-//     getTask,
-//     updateTask,
-//     deleteTask,
-//     createTask 
-//      } = require('../controllers/tasks')
 
 
 
@@ -19,7 +8,6 @@ const { AllDetails } = require('../controllers/products')
 router.route('/')
          .get(AllDetails)
         
-
 
 // router.route('/:id')
 //          .get(getTask)
