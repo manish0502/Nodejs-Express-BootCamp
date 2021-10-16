@@ -1,0 +1,91 @@
+1. Api: To get the List of Tasks
+   request : GET
+   Response: 
+        {
+            "msg": "The list is fetched successfully",
+            "status": 200,
+            "body": [
+                {
+                    "_id": "616a6d03c30cb92a6a200d88",
+                    "name": "testing",
+                    "completed": true,
+                    "__v": 0
+                },
+                {
+                    "_id": "616a6dc6edc174c0cafe45e6",
+                    "name": "Manish Kumar Giri",
+                    "completed": true,
+                    "__v": 0
+                },
+                {
+                    "_id": "616a7651d5c25eedb40f0453",
+                    "name": "Rahul sinha",
+                    "completed": true,
+                    "__v": 0
+                },
+                {
+                    "_id": "616a7739d5c25eedb40f0455",
+                    "name": "Rahul sinha",
+                    "completed": true,
+                    "__v": 0
+                },
+                {
+                    "_id": "616a7746d5c25eedb40f0457",
+                    "name": "Rahul sinha k",
+                    "completed": false,
+                    "__v": 0
+                },
+                {
+                    "_id": "616a77c912a9e8a3919623db",
+                    "name": "Divyanka singh",
+                    "completed": true,
+                    "__v": 0
+                },
+                {
+                    "_id": "616a837e3b494c37e42fe4b6",
+                    "name": "Umesh yadav",
+                    "completed": true,
+                    "__v": 0
+                }
+            ]
+        }
+
+
+2 . Api : to Create new Tasks
+    Request : POST 
+    body : 
+      {
+         "name":"Mohan kumar",
+         "completed": false
+      }
+    Response :
+
+       {
+            "msg": "A new Task has been created successfully",
+            "status": 201,
+            "body": {
+                "name": "Mohan kumar",
+                "completed": false,
+                "_id": "616a894d22d9b646c3e4c7a8",
+                "__v": 0
+            }
+       }
+
+
+ 3. Api: To get the Task using ID
+    request : GET
+    url : {{URL}}/tasks/616a894d22d9b646c3e4c7a8
+    Response: 
+          {
+            "msg": "Task with id : 616a894d22d9b646c3e4c7a8 found successfully",
+            "body": {
+                "_id": "616a894d22d9b646c3e4c7a8",
+                "name": "Mohan kumar",
+                "completed": false,
+                "__v": 0
+            }
+          }
+       
+
+     
+
