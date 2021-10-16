@@ -1,5 +1,10 @@
 const express = require('express');
 const router = express.Router();
+
+
+const { AllDetails } = require('../controllers/products')
+
+
 // const  {  
 //     getAllTasks,
 //     getTask,
@@ -11,9 +16,9 @@ const router = express.Router();
 
 
 
-// router.route('/')
-//          .get(getAllTasks)
-//          .post(createTask)
+router.route('/')
+         .get(AllDetails)
+        
 
 
 // router.route('/:id')
@@ -21,12 +26,7 @@ const router = express.Router();
 //          .patch(updateTask)
 //          .delete(deleteTask)
 
-router.get('/', (req, res) => {
-    res.send({
-        msg:'Hello from app',
-        status: 200,
-    })
-})
+
 
 
 module.exports = router;
