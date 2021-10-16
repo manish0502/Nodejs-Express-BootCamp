@@ -1,3 +1,4 @@
+process.env.SUPPRESS_NO_CONFIG_WARNING = 'y';
 require('dotenv').config()
 const config = require('config') ;
 const mongoose =require('mongoose');

@@ -48,7 +48,10 @@ const asyncWrapper= require('../middleware/async')
 
   const createTask = asyncWrapper(async (req, res) => {
         const task = await Task.create(req.body)
-        res.status(201).json({ task })
+        res.status(status.CREATED).json({
+          msg:"A new Task has been created successfully",
+          status: status.CREATED
+         })
       })
   
 
