@@ -19,6 +19,8 @@ connectDB();
 
 /*---------Intialize Middleware-----*/
 
+
+app.use(express.static('./public'));
 app.use(logger('dev'));
 app.use(express.json({extended : false}));
 
