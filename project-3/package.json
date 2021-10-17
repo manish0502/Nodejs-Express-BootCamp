@@ -1,0 +1,30 @@
+{
+  "name": "project-3",
+  "version": "1.0.0",
+  "description": "This is jwt basic projects",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "express",
+    "Mongodb",
+    "JWT"
+  ],
+  "author": "Manish Kumar Giri",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "http-status": "^1.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.11",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
