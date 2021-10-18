@@ -9,6 +9,7 @@ const rateLimiter = require('express-rate-limit');
 
 require('express-async-errors');
 const connectDB = require('./config/db');
+const authenticateUser = require('./middleware/authentication');
 const AuthAPI = require('./routes/route')
 const jobsRouter = require('./routes/jobs')
 var logger = require('morgan')
@@ -29,23 +30,23 @@ app.use(express.json({extended : false}));
 //app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-app.set('trust proxy', 1);
-app.use(
-  rateLimiter({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
-  })
-);
-app.use(helmet());
-app.use(cors());
-app.use(xss());
+// app.set('trust proxy', 1);
+// app.use(
+//   rateLimiter({
+//     windowMs: 15 * 60 * 1000, // 15 minutes
+//     max: 100, // limit each IP to 100 requests per windowMs
+//   })
+// );
+// app.use(helmet());
+// app.use(cors());
+// app.use(xss());
 
 
 /*------------Setup Of APIs-------------*/
 
 
 app.use("/api/v1/auth" ,AuthAPI)
-app.use('/api/v1/jobs', jobsRouter);
+app.use('/api/v1/jobs', authenticateUser,jobsRouter);
 
 
 

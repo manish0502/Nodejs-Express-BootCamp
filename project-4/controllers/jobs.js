@@ -1,7 +1,26 @@
-const getAllJobs = async (req , res)=>{
+const Job = require('../models/job')
+const asyncWrapper = require("../middleware/async");
+const { StatusCodes } = require('http-status-codes')
+const { BadRequestError, NotFoundError } = require('../errors')
+
+
+
+
+const getAllJobs = async (req , res ,next)=>{
+
+   // const { id :jobID } = req.user.userId;
+
+    const Jobs = await Job.find({ createdBy: req.user.userId }).sort('createdAt');
+
+    if(!Jobs){
+        res.send("No job Listed")
+    }
+
     res.json({ 
-        msg:" this from get all jobs",
-        status:200
+        msg:" List of Jobs",
+        Details: Jobs,
+        Count: Jobs.length,
+        status:StatusCodes.OK
     })
 }
 
@@ -13,13 +32,21 @@ const getJob = async (req , res)=>{
     })
 }
 
+const createJob = async (req, res) => {
+    req.body.createdBy = req.user.userId
+    const job = await Job.create(req.body)
+    res.status(StatusCodes.CREATED).json({ job })
+  }
 
-const createJob = async (req , res)=>{
-    res.json({ 
-        msg:" create a job",
-        status:200
-    })
-}
+// const createJob = async (req , res)=>{
+
+//     //req.body.createdBy = req.user.userId
+//     const Job = await Job.create({...req.body})
+//     res.json({ 
+//         msg:" create a job",
+//         status:StatusCodes.CREATED
+//     })
+// }
 
 const updateJob = async (req , res)=>{
     res.json({ 

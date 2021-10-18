@@ -22,7 +22,7 @@ const register = asyncWrapper(async (req, res) => {
   res.status(StatusCodes.CREATED).json({
     msg: "User has been successfully created",
     status: StatusCodes.CREATED,
-    user: user,
+    user: { name: user.name },
     token,
   });
 });
