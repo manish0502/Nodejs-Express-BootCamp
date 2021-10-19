@@ -1,8 +1,9 @@
 const Job = require("../models/job");
 const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, NotFoundError } = require("../errors");
+const asyncWrapper = require("../middleware/async");
 
-const getAllJobs = async (req, res) => {
+const getAllJobs = asyncWrapper(async (req, res) => {
 
   const jobs = await Job.find({ createdBy: req.user.userId }).sort("createdAt");
   res.status(StatusCodes.OK).json({
@@ -13,9 +14,9 @@ const getAllJobs = async (req, res) => {
      count: jobs.length
 
      });
-};
+});
 
-const getJob = async (req, res) => {
+const getJob = asyncWrapper(async (req, res) => {
 
   const { id: jobId } = req.params;
   const { userId } = req.user;
@@ -33,9 +34,9 @@ const getJob = async (req, res) => {
     status: StatusCodes.OK,
     jobDetails: job,
   });
-};
+});
 
-const createJob = async (req, res) => {
+const createJob = asyncWrapper(async (req, res) => {
 
   req.body.createdBy = req.user.userId;
   const job = await Job.create(req.body);
@@ -45,9 +46,9 @@ const createJob = async (req, res) => {
     status: StatusCodes.CREATED,
     JobDetails: job,
   });
-};
+});
 
-const updateJob = async (req, res) => {
+const updateJob = asyncWrapper(async (req, res) => {
 
   const { company , position } = req.body; 
   const { userId } = req.user; 
@@ -73,9 +74,9 @@ const updateJob = async (req, res) => {
     JobDetails: job,
   });
 
-};
+});
 
-const deleteJob = async (req, res) => {
+const deleteJob = asyncWrapper(async (req, res) => {
 
   
   const { userId } = req.user; 
@@ -95,7 +96,7 @@ const deleteJob = async (req, res) => {
 
   });
  
-};
+});
 
 module.exports = {
   createJob,

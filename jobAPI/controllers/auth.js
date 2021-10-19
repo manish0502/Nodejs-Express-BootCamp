@@ -1,8 +1,9 @@
 const User = require('../models/User')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, UnauthenticatedError } = require('../errors')
+const asyncWrapper = require("../middleware/async");
 
-const register = async (req, res) => {
+const register = asyncWrapper( async (req, res) => {
   const user = await User.create({ ...req.body })
   const token = user.createJWT()
 
@@ -13,9 +14,9 @@ const register = async (req, res) => {
     token,
   });
  
-}
+})
 
-const login = async (req, res) => {
+const login = asyncWrapper(async (req, res) => {
   const { email, password } = req.body
 
   if (!email || !password) {
@@ -32,7 +33,7 @@ const login = async (req, res) => {
   // compare password
   const token = user.createJWT()
   res.status(StatusCodes.OK).json({ user: { name: user.name }, token })
-}
+})
 
 module.exports = {
   register,
