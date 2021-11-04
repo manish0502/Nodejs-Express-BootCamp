@@ -1,5 +1,5 @@
 # Nodejs-Express-Tutorials-with-projects
-## This is Node.js ans Express Tutorials with projects
+## This is Node.js and Express Tutorials with projects
 
 
 1. Node Tutorial
